@@ -1121,7 +1121,7 @@
           <span class="pulse-dot"></span>
           En validación
         </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Quiero participar</a>
+        <a href="#validacion" class="btn btn-primary btn-sm">Quiero participar</a>
       </div>
     </div>
   </nav>
@@ -1143,7 +1143,7 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform" class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           QUIERO PARTICIPAR EN EL PILOTO
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
         </a>
@@ -1672,7 +1672,7 @@
 
         <!-- Formulario visual preparado para enlazar a Google Forms -->
         <div class="pilot-form-stub">
-          <form onsubmit="handlePilotSubmit(event)">
+          <form onsubmit="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform', '_blank', 'noopener,noreferrer'); return false;">
             <div class="form-stub-inputs">
               <div class="form-stub-field">
                 <label for="profesion-select" class="">¿Cuál es tu actividad principal?</label>
@@ -1705,7 +1705,7 @@
           </form>
 
           <p class="form-notice">
-            * Sin costo ni compromisos comerciales. Este botón está preparado para dirigir directamente a tu encuesta o Google Forms de validación.
+            * Sin costo ni compromisos comerciales. Al continuar se abrirá el formulario de participación.
           </p>
         </div>
 
@@ -1740,27 +1740,6 @@
     </div>
   </footer>
 
-  <!-- Modal para instrucciones de enlace con Google Forms -->
-  <div class="modal-overlay" id="pilotModal" onclick="closePilotModal(event)">
-    <div class="modal-window" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closePilotModalDirect()" aria-label="Cerrar">✕</button>
-      <h3 class="modal-title">¡Gracias por tu interés en ODETTE!</h3>
-      <p class="modal-desc">
-        ODETTE está en etapa de validación. Para conectar este botón con tu formulario real de Google Forms en Google Sites:
-      </p>
-
-      <div class="forms-preview-box">
-        <strong>Para el creador de la página:</strong><br>
-        Reemplaza la función en el bloque <code>&lt;script&gt;</code> con el enlace a tu Google Form:<br>
-        <code>window.open('https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform', '_blank');</code>
-      </div>
-
-      <button class="btn btn-primary" style="width: 100%;" onclick="closePilotModalDirect()">
-        Entendido
-      </button>
-    </div>
-  </div>
-
   <script>
     // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1776,17 +1755,6 @@
       });
     });
 
-    }
-
-    function closePilotModal(e) {
-      if (e.target.id === 'pilotModal') {
-        document.getElementById('pilotModal').classList.remove('active');
-      }
-    }
-
-    function closePilotModalDirect() {
-      document.getElementById('pilotModal').classList.remove('active');
-    }
   </script>
 
 
