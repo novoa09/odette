@@ -976,6 +976,72 @@
       color: var(--text-secondary);
     }
 
+    /* Modal for Pilot Form Link Demonstration */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-window {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--bg-subtle);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+    }
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .modal-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .forms-preview-box {
+      background: var(--bg-subtle);
+      border: 1px dashed #CBD5E1;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      word-break: break-all;
+    }
+    .forms-preview-box code {
+      font-family: monospace;
+      color: var(--brand-indigo);
+      font-weight: 600;
+    }
 
     /* Responsive adjustments */
     @media (max-width: 900px) {
@@ -1675,7 +1741,21 @@
   </footer>
 
   <!-- Modal para instrucciones de enlace con Google Forms -->
-<button class="btn btn-primary" style="width: 100%;" onclick="closePilotModalDirect()">
+  <div class="modal-overlay" id="pilotModal" onclick="closePilotModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closePilotModalDirect()" aria-label="Cerrar">✕</button>
+      <h3 class="modal-title">¡Gracias por tu interés en ODETTE!</h3>
+      <p class="modal-desc">
+        ODETTE está en etapa de validación. Para conectar este botón con tu formulario real de Google Forms en Google Sites:
+      </p>
+
+      <div class="forms-preview-box">
+        <strong>Para el creador de la página:</strong><br>
+        Reemplaza la función en el bloque <code>&lt;script&gt;</code> con el enlace a tu Google Form:<br>
+        <code>window.open('https://docs.google.com/forms/d/e/1FAIpQLSfv7PVZB9Lig06Whju-pTsibIVxlKJAA3qPmPfI5hXTlGG_bQ/viewform', '_blank');</code>
+      </div>
+
+      <button class="btn btn-primary" style="width: 100%;" onclick="closePilotModalDirect()">
         Entendido
       </button>
     </div>
@@ -1696,20 +1776,6 @@
       });
     });
 
-    // Handle Pilot Submission / Google Forms redirection
-    function handlePilotSubmit(e) {
-      e.preventDefault();
-      // Aquí se puede abrir directamente el enlace al Google Forms:
-      // window.open('https://docs.google.com/forms/d/e/.../viewform', '_blank');
-      
-      // Feedback visual amigable y sin simulación de backend:
-      const modal = document.getElementById('pilotModal');
-      if (modal) {
-        modal.classList.add('active');
-      }
-    }
-);
-      }
     }
 
     function closePilotModal(e) {
